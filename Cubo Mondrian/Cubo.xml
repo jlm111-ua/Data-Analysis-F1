@@ -1,0 +1,188 @@
+<Schema name="ingp_formula1">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Driver">
+    <Hierarchy name="Nacionalidad" visible="true" hasAll="true" primaryKey="idDriver">
+      <Table name="driver">
+      </Table>
+      <Level name="Nationality" visible="true" column="Nationality" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Apellido" visible="true" hasAll="true" primaryKey="idDriver">
+      <Table name="driver" alias="">
+      </Table>
+      <Level name="Apellido_Piloto" visible="true" column="Last_Name" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Format">
+    <Hierarchy name="Formato_GP" visible="true" hasAll="true" primaryKey="idFormat">
+      <Table name="format">
+      </Table>
+      <Level name="Weekend_Format" visible="true" column="GP_Format" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Grand_Prix">
+    <Hierarchy name="Ubicaci&#243;n" visible="true" hasAll="true" primaryKey="idGrand_Prix">
+      <Table name="grand_prix">
+      </Table>
+      <Level name="Pais" visible="true" column="Country" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Location" visible="true" column="Location" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Nombre" visible="true" hasAll="true" primaryKey="idGrand_Prix">
+      <Table name="grand_prix" alias="">
+      </Table>
+      <Level name="Nombre_GranPremio" visible="true" column="Name" uniqueMembers="false">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Lap_deleted">
+    <Hierarchy name="Vuelta_anulada" visible="true" hasAll="true" primaryKey="idLap_deleted">
+      <Table name="lap_deleted">
+      </Table>
+      <Level name="Is_deleted" visible="true" column="is_deleted" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Motivo" visible="true" column="Reason" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Lap_number">
+    <Hierarchy name="Numero_Vuelta" visible="true" hasAll="true">
+      <Table name="lap_number">
+      </Table>
+      <Level name="N&#250;mero" visible="true" column="Number" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Pit_stop">
+    <Hierarchy name="Parada" visible="true" hasAll="true" primaryKey="idPit_stop">
+      <Table name="pit_stop">
+      </Table>
+      <Level name="Is_stop" visible="true" column="Lap_Stop" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Schedule">
+    <Hierarchy name="Fecha" visible="true" hasAll="true" primaryKey="idSchedule">
+      <Table name="schedule">
+      </Table>
+      <Level name="A&#241;o" visible="true" column="Year" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Mes" visible="true" column="Month" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Dia" visible="true" column="Day" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Team">
+    <Hierarchy name="Nacionalidad" visible="true" hasAll="true" primaryKey="idTeam">
+      <Table name="team">
+      </Table>
+      <Level name="Nationality" visible="true" column="Nationality" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+    <Hierarchy name="Nombre" visible="true" hasAll="true" primaryKey="idTeam">
+      <Table name="team">
+      </Table>
+      <Level name="Name" visible="true" column="Name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Track_status">
+    <Hierarchy name="Estado" visible="true" hasAll="true" primaryKey="idTrack_status">
+      <Table name="track_status">
+      </Table>
+      <Level name="Status" visible="true" column="Status" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Tyre">
+    <Hierarchy name="Tipo" visible="true" hasAll="true" primaryKey="idTyre">
+      <Table name="tyre">
+      </Table>
+      <Level name="Compuesto" visible="true" column="Compound" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Weather">
+    <Hierarchy name="Tiempo_Actual" visible="true" hasAll="true" primaryKey="idWeather">
+      <Table name="weather">
+      </Table>
+      <Level name="Weather_Condition" visible="true" column="Weather_Condition" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="ingp_formula1_test" visible="true" cache="true" enabled="true">
+    <Table name="tabla_hechos">
+    </Table>
+    <DimensionUsage source="Driver" name="Piloto" visible="true" foreignKey="idDriver" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Format" name="Formato" visible="true" foreignKey="idFormat" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Grand_Prix" name="Gran_Premio" visible="true" foreignKey="idGrand_Prix" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Lap_deleted" name="Vuelta_eliminada" visible="true" foreignKey="idLap_deleted" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Lap_number" name="Numero_vuelta" visible="true" foreignKey="idLap_number" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Pit_stop" name="Parada_Boxes" visible="true" foreignKey="idPit_stop" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Schedule" name="Calendario" visible="true" foreignKey="idSchedule" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Team" name="Equipo" visible="true" foreignKey="idTeam" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Track_status" name="Estado_pista" visible="true" foreignKey="idTrack_status" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Tyre" name="Neumatico" visible="true" foreignKey="idTyre" highCardinality="false">
+    </DimensionUsage>
+    <DimensionUsage source="Weather" name="Clima" visible="true" foreignKey="idWeather" highCardinality="false">
+    </DimensionUsage>
+    <Measure name="Tiempo_vuelta" column="Lap_time" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sector1" column="Sector1" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sector2" column="Sector2" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sector3" column="Sector3" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="SpeedTrap_S1" column="SpeedTrap_S1" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="SpeedTrap_S2" column="SpeedTrap_S2" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="SpeedTrap_FL" column="SpeedTrap_FL" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="SpeedTrap_LS" column="SpeedTrap_LS" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Avg_RPM" column="Avg_RPM" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Avg_Speed" column="Avg_Speed" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Avg_Gear" column="Avg_Gear" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="Brake_lap" column="Brake_lap" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="DRS_on" column="DRS_on" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="LapDifference_teammate" column="LapDifference_teammate" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sec1DIfference_teammate" column="Sec1Difference_teammate" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sec2Difference_teammate" column="Sec2Difference_teammate" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Sec3Difference_teammate" column="Sec3Difference_teammate" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Pit_time" column="Pit_time" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Tyrelife" column="Tyrelife" aggregator="max" visible="true">
+    </Measure>
+    <Measure name="Track_temperature" column="Track_Temp" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="nLaps" column="nLaps" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="Tiempo_vuelta_Avg" column="Lap_time" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="LapDifference_teammate_Avg" column="LapDifference_teammate" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
